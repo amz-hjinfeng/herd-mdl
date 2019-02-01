@@ -95,8 +95,8 @@ Resources:
           - !Ref ReleaseVersion
           - 'ns-auth-sync-lambda-role'
       ManagedPolicyArns:
-        - 'arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess'
-        - 'arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole'
+        - 'arn:aws-cn:iam::aws:policy/AmazonSSMReadOnlyAccess'
+        - 'arn:aws-cn:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole'
   NsAuthUtilityArnParameter:
     Type: AWS::SSM::Parameter
     Properties:

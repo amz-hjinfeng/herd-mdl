@@ -38,9 +38,9 @@ Resources:
               - 'sts:AssumeRole'
       Path: /
       ManagedPolicyArns:
-        - 'arn:aws:iam::aws:policy/CloudWatchLogsFullAccess'
-        - 'arn:aws:iam::aws:policy/AutoScalingFullAccess'
-        - 'arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/CloudWatchLogsFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AutoScalingFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/ElasticLoadBalancingFullAccess'
       Policies:
         - PolicyName: root
           PolicyDocument:
@@ -69,16 +69,16 @@ Resources:
               - 'sts:AssumeRole'
       Path: /
       ManagedPolicyArns:
-        - 'arn:aws:iam::aws:policy/CloudWatchLogsFullAccess'
-        - 'arn:aws:iam::aws:policy/AWSCodeDeployDeployerAccess'
-        - 'arn:aws:iam::aws:policy/AmazonSNSFullAccess'
-        - 'arn:aws:iam::aws:policy/service-role/AWSLambdaRole'
-        - 'arn:aws:iam::aws:policy/AmazonESFullAccess'
-        - 'arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess'
-        - 'arn:aws:iam::aws:policy/AmazonSSMFullAccess'
-        - 'arn:aws:iam::aws:policy/AmazonSQSFullAccess'
-        - 'arn:aws:iam::aws:policy/AmazonRoute53FullAccess'
-        - 'arn:aws:iam::aws:policy/AmazonS3FullAccess'
+        - 'arn:aws-cn:iam::aws:policy/CloudWatchLogsFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AWSCodeDeployDeployerAccess'
+        - 'arn:aws-cn:iam::aws:policy/AmazonSNSFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/service-role/AWSLambdaRole'
+        - 'arn:aws-cn:iam::aws:policy/AmazonESFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/ElasticLoadBalancingFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AmazonSSMFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AmazonSQSFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AmazonRoute53FullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AmazonS3FullAccess'
       Policies:
         - PolicyName: root
           PolicyDocument:
@@ -127,7 +127,7 @@ Resources:
               - 'sts:AssumeRole'
       Path: /
       ManagedPolicyArns:
-        - 'arn:aws:iam::aws:policy/service-role/AWSLambdaRole'
+        - 'arn:aws-cn:iam::aws:policy/service-role/AWSLambdaRole'
       Policies:
         - PolicyName: root
           PolicyDocument:
@@ -188,7 +188,7 @@ Resources:
                   - 'iam:UpdateRoleDescription'
                   - 'iam:PutRolePolicy'
                 Resource: >-
-                  arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup*
+                  arn:aws-cn:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup*
                 Condition:
                   StringLike:
                     'iam:AWSServiceName': elasticmapreduce.amazonaws.com

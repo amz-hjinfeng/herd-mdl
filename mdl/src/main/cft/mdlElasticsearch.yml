@@ -113,7 +113,7 @@ Resources:
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
-                Resource: arn:aws:logs:*:*:*
+                Resource: arn:aws-cn:logs:*:*:*
   ManageServiceLinkedRoleFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -527,7 +527,7 @@ Resources:
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
-                Resource: arn:aws:logs:*:*:*
+                Resource: arn:aws-cn:logs:*:*:*
               - Effect: Allow
                 Action:
                   - acm:DeleteCertificate

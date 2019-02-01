@@ -47,7 +47,7 @@ public class NotificationSender {
 	@Value( "${MAILING_LIST}" )
 	private String mailingList;
 
-	@Value( "${ENV_GROUP}" )
+	@Value( "${ENV}" )
 	String env;
 
 	@Value( "${FORMAT_CHANGE_MAILING_LIST}" )

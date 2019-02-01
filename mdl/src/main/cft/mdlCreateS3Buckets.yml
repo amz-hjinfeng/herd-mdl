@@ -92,7 +92,7 @@ Resources:
             Action: 's3:GetObject'
             Resource: !Join
               - ''
-              - - 'arn:aws:s3:::'
+              - - 'arn:aws-cn:s3:::'
                 - !If [EnableSSLAndAuth, !Ref CloudfrontS3Bucket, !Ref S3BucketForStaticPages]
                 - /*
   LambdaExecutionRole:
@@ -118,7 +118,7 @@ Resources:
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
-                Resource: arn:aws:logs:*:*:*
+                Resource: arn:aws-cn:logs:*:*:*
               - Effect: Allow
                 Action:
                   - s3:Get*

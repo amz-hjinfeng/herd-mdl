@@ -63,9 +63,9 @@ Resources:
               - sts:AssumeRole
       Path: /
       ManagedPolicyArns:
-        - 'arn:aws:iam::aws:policy/AmazonSSMFullAccess'
-        - 'arn:aws:iam::aws:policy/CloudWatchLogsFullAccess'
-        - 'arn:aws:iam::aws:policy/AWSCodeDeployFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AmazonSSMFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/CloudWatchLogsFullAccess'
+        - 'arn:aws-cn:iam::aws:policy/AWSCodeDeployFullAccess'
   UpgradeHerdUtilityArnParameter:
     Type: AWS::SSM::Parameter
     Properties:
