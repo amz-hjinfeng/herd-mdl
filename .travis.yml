@@ -42,7 +42,7 @@ after_success:
 before_deploy:
   - export GIT_TAG="${RELEASE_COMPONENT}-v${component_version}"
   - git tag $GIT_TAG -a -m "Tagging from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://${GH_TOKEN}@github.com/FINRAOS/herd-mdl.git --tags
+  - git push -q https://${GH_TOKEN}@github.com/amz-hjinfeng/herd-mdl.git --tags
 
 deploy:
   - provider: s3
