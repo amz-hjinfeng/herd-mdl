@@ -51,7 +51,7 @@ deploy:
     bucket: 'herd-release'
     skip_cleanup: true
     upload-dir: 'mdl'
-    region: 'ap-southeast-1'
+    region: ap-southeast-1
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdl-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdlt-${component_version}-dist.zip'
@@ -70,7 +70,7 @@ deploy:
     bucket: 'herd-release'
     skip_cleanup: true
     upload-dir: 'bdsql'
-    region: 'ap-southeast-1'
+    region: ap-southeast-1
     file: '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/bdsql-${component_version}-dist.zip'
     on:
       repo: amz-hjinfeng/herd-mdl
@@ -85,7 +85,7 @@ deploy:
     bucket: 'herd-release'
     skip_cleanup: true
     upload-dir: 'metastor'
-    region: 'ap-southeast-1'
+    region: ap-southeast-1
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/managedObjectLoader/target/managedObjectLoader-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/metastoreOperations/target/metastoreOperations-${component_version}-dist.zip'
