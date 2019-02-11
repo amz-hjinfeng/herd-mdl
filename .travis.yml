@@ -39,10 +39,10 @@ after_script:
 after_success:
   - bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
 
-before_deploy:
-  - export GIT_TAG="${RELEASE_COMPONENT}-v${component_version}"
-  - git tag $GIT_TAG -a -m "Tagging from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://${GH_TOKEN}@github.com/amz-hjinfeng/herd-mdl.git --tags
+#before_deploy:
+#  - export GIT_TAG="${RELEASE_COMPONENT}-v${component_version}"
+#  - git tag $GIT_TAG -a -m "Tagging from TravisCI for build $TRAVIS_BUILD_NUMBER"
+#  - git push -q https://${GH_TOKEN}@github.com/amz-hjinfeng/herd-mdl.git --tags
 
 deploy:
   - provider: s3
@@ -51,6 +51,7 @@ deploy:
     bucket: 'herd-release'
     skip_cleanup: true
     upload-dir: 'mdl'
+    region: 'ap-southeast-1'
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdl-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdlt-${component_version}-dist.zip'
@@ -69,6 +70,7 @@ deploy:
     bucket: 'herd-release'
     skip_cleanup: true
     upload-dir: 'bdsql'
+    region: 'ap-southeast-1'
     file: '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/bdsql-${component_version}-dist.zip'
     on:
       repo: amz-hjinfeng/herd-mdl
@@ -83,6 +85,7 @@ deploy:
     bucket: 'herd-release'
     skip_cleanup: true
     upload-dir: 'metastor'
+    region: 'ap-southeast-1'
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/managedObjectLoader/target/managedObjectLoader-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/metastoreOperations/target/metastoreOperations-${component_version}-dist.zip'
