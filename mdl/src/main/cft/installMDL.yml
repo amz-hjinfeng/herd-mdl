@@ -20,7 +20,7 @@ Parameters:
     Description: >
       MDL release version to use. [REQUIRED]
     Type: String
-    Default: '1.4.0'
+    Default: '1.4.1'
   DeployComponents:
     Type: String
     Default: All
