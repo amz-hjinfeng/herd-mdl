@@ -39,60 +39,109 @@ after_script:
 after_success:
   - bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
 
-#before_deploy:
-#  - export GIT_TAG="${RELEASE_COMPONENT}-v${component_version}"
-#  - git tag $GIT_TAG -a -m "Tagging from TravisCI for build $TRAVIS_BUILD_NUMBER"
-#  - git push -q https://${GH_TOKEN}@github.com/amz-hjinfeng/herd-mdl.git --tags
+before_deploy:
+ - export GIT_TAG="${RELEASE_COMPONENT}-v${component_version}"
+ - git tag $GIT_TAG -a -m "Tagging from TravisCI for build $TRAVIS_BUILD_NUMBER"
+ - git push -q https://${GH_TOKEN}@github.com/amz-hjinfeng/herd-mdl.git --tags
+
+# deploy:
+#   - provider: s3
+#     access_key_id: ${AK}
+#     secret_access_key: ${AS}
+#     bucket: 'herd-release'
+#     skip_cleanup: true
+#     upload-dir: 'mdl'
+#     region: ap-southeast-1
+#     file:
+#       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdl-${component_version}-dist.zip'
+#       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdlt-${component_version}-dist.zip'
+#       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/mdlt/scripts/cft/mdlt.yml'
+#       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/cft/installMDL.yml'
+#     on:
+#       repo: amz-hjinfeng/herd-mdl
+#       branch: master
+#       condition: ${RELEASE_COMPONENT} = mdl && ${RELEASE} = "true"
+#       name: herd-${RELEASE_COMPONENT}-v${component_version}
+#       body: Automated herd-mdl (mdl) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
+
+#   - provider: s3
+#     access_key_id: ${AK}
+#     secret_access_key: ${AS}
+#     bucket: 'herd-release'
+#     skip_cleanup: true
+#     upload-dir: 'bdsql'
+#     region: ap-southeast-1
+#     file: '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/bdsql-${component_version}-dist.zip'
+#     on:
+#       repo: amz-hjinfeng/herd-mdl
+#       branch: master
+#       condition: ${RELEASE_COMPONENT} = bdsql && ${RELEASE} = "true"
+#       name: ${RELEASE_COMPONENT}-v${component_version}
+#       body: Automated herd-mdl (bdsql) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
+
+#   - provider: s3
+#     access_key_id: ${AK}
+#     secret_access_key: ${AS}
+#     bucket: 'herd-release'
+#     skip_cleanup: true
+#     upload-dir: 'metastor'
+#     region: ap-southeast-1
+#     file:
+#       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/managedObjectLoader/target/managedObjectLoader-${component_version}-dist.zip'
+#       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/metastoreOperations/target/metastoreOperations-${component_version}-dist.zip'
+#     on:
+#       repo: amz-hjinfeng/herd-mdl
+#       branch: master
+#       condition: ${RELEASE_COMPONENT} = metastor && ${RELEASE} = "true"
+#       name: ${RELEASE_COMPONENT}-v${component_version}
+#       body: Automated herd-mdl (metastor) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
 
 deploy:
-  - provider: s3
-    access_key_id: ${AK}
-    secret_access_key: ${AS}
-    bucket: 'herd-release'
-    skip_cleanup: true
-    upload-dir: 'mdl'
-    region: ap-southeast-1
+  - provider: releases
+    user: ${GH_USER}
+    password: ${GH_PWD}
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdl-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdlt-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/mdlt/scripts/cft/mdlt.yml'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/cft/installMDL.yml'
+    skip_cleanup: true
     on:
       repo: amz-hjinfeng/herd-mdl
       branch: master
       condition: ${RELEASE_COMPONENT} = mdl && ${RELEASE} = "true"
-      name: herd-${RELEASE_COMPONENT}-v${component_version}
-      body: Automated herd-mdl (mdl) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
+    name: herd-${RELEASE_COMPONENT}-v${component_version}
+    body: Automated herd-mdl (mdl) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
 
-  - provider: s3
-    access_key_id: ${AK}
-    secret_access_key: ${AS}
-    bucket: 'herd-release'
-    skip_cleanup: true
-    upload-dir: 'bdsql'
-    region: ap-southeast-1
+  - provider: releases
+    user: ${GH_USER}
+    password: ${GH_PWD}
     file: '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/bdsql-${component_version}-dist.zip'
+    skip_cleanup: true
     on:
       repo: amz-hjinfeng/herd-mdl
       branch: master
       condition: ${RELEASE_COMPONENT} = bdsql && ${RELEASE} = "true"
-      name: ${RELEASE_COMPONENT}-v${component_version}
-      body: Automated herd-mdl (bdsql) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
+    name: ${RELEASE_COMPONENT}-v${component_version}
+    body: Automated herd-mdl (bdsql) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
 
-  - provider: s3
-    access_key_id: ${AK}
-    secret_access_key: ${AS}
-    bucket: 'herd-release'
-    skip_cleanup: true
-    upload-dir: 'metastor'
-    region: ap-southeast-1
+  - provider: releases
+    user: ${GH_USER}
+    password: ${GH_PWD}
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/managedObjectLoader/target/managedObjectLoader-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/metastoreOperations/target/metastoreOperations-${component_version}-dist.zip'
+    skip_cleanup: true
     on:
       repo: amz-hjinfeng/herd-mdl
       branch: master
       condition: ${RELEASE_COMPONENT} = metastor && ${RELEASE} = "true"
-      name: ${RELEASE_COMPONENT}-v${component_version}
-      body: Automated herd-mdl (metastor) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
+    name: ${RELEASE_COMPONENT}-v${component_version}
+    body: Automated herd-mdl (metastor) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
 
+  - provider: script
+    script: bash $TRAVIS_BUILD_DIR/scripts/publish_docker.sh ${component_version} $TRAVIS_BUILD_DIR/mdl/build/
+    on:
+      repo: amz-hjinfeng/herd-mdl
+      branch: master
+      condition: ${RELEASE_COMPONENT} = mdl && ${DOCKER_RELEASE} = "true" && ${RELEASE} = "true"
