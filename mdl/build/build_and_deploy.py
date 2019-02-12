@@ -339,7 +339,7 @@ def _get_artifact_url(bucket_name, prefix):
     for obj_sum in objects_sum:
         if obj_sum.key.endswith('.zip'):
             logging.info('artifact key: {}'.format(obj_sum.key))
-            return 'https://s3.amazonaws.com/{}/{}'.format(bucket_name, obj_sum.key)
+            return 'https://s3.cn-northwest-1.amazonaws.com.cn/{}/{}'.format(bucket_name, obj_sum.key)
 
 
 def _deploy_stack():

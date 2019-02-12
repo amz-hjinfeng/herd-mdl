@@ -118,7 +118,7 @@ Resources:
     Properties:
       TemplateURL: !Join
         - ''
-        - - 'https://s3.amazonaws.com/'
+        - - 'https://s3.cn-northwest-1.amazonaws.com.cn/'
           - !Ref DeploymentBucketName
           - /
           - !Ref ReleaseVersion
@@ -146,7 +146,7 @@ Resources:
     Properties:
       TemplateURL: !Join
         - ''
-        - - 'https://s3.amazonaws.com/'
+        - - 'https://s3.cn-northwest-1.amazonaws.com.cn/'
           - !Ref DeploymentBucketName
           - /
           - !Ref ReleaseVersion
@@ -177,7 +177,7 @@ Resources:
     Properties:
       TemplateURL: !Join
         - ''
-        - - 'https://s3.amazonaws.com/'
+        - - 'https://s3.cn-northwest-1.amazonaws.com.cn/'
           - !Ref DeploymentBucketName
           - /
           - !Ref ReleaseVersion
@@ -203,7 +203,7 @@ Resources:
     Properties:
       TemplateURL: !Join
         - ''
-        - - 'https://s3.amazonaws.com/'
+        - - 'https://s3.cn-northwest-1.amazonaws.com.cn/'
           - !Ref DeploymentBucketName
           - /
           - !Ref ReleaseVersion

@@ -98,7 +98,7 @@ public class CloudFormationClient {
      * @param rollbackOnFailure        whether rollback on stack creation failure
      */
     public void createStack(Map<String, String> params, String cftTemplateName, boolean rollbackOnFailure) throws Exception {
-        String s3BucketURLPrefix = "https://s3.amazonaws.com/";
+        String s3BucketURLPrefix = "https://s3.cn-northwest-1.amazonaws.com.cn/";
         masterCFTLocation = s3BucketURLPrefix
                 .concat(propertyValues.getProperty("MdltBucketName") + "/")
                 .concat("cft" + "/")

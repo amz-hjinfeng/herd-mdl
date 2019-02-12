@@ -399,7 +399,7 @@ Resources:
     DependsOn: ArtifactCopyCustomResource
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Sub '${AWS::AccountId}-${MDLInstanceName}-staging-${Environment}', '/', !Ref ReleaseVersion,  '/cft/mdl.yml']]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Sub '${AWS::AccountId}-${MDLInstanceName}-staging-${Environment}', '/', !Ref ReleaseVersion,  '/cft/mdl.yml']]
       Parameters:
         ReleaseVersion: !Ref ReleaseVersion
         DeploymentBucketName: !Sub '${AWS::AccountId}-${MDLInstanceName}-staging-${Environment}'

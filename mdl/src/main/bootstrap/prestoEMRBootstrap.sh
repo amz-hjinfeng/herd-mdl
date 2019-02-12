@@ -31,7 +31,7 @@ sudo aws s3 sync "$S3_LOCATION" /opt/mdl/bdsql/ #--include '*.sh'
 #Set cloudwatch log for Bdsql
 echo "setup cloudwatch for Bdsql"
 sudo sed -i "s/{log_group_name}/${logGroupName}/g" /opt/mdl/bdsql/logs.conf
-wget https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
+wget https://s3.cn-northwest-1.amazonaws.com.cn/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
 chmod +x ./awslogs-agent-setup.py
 sudo python awslogs-agent-setup.py -n -r ${regionName} -c s3://aws-codedeploy-us-east-1/cloudwatch/awslogs.conf
 sudo mkdir -p /var/awslogs/etc/config
@@ -179,7 +179,7 @@ function excuteBackgroundActions(){
 
   echo "configuring AWS RDS SSL CA certificate"
   sudo mkdir -p /etc/hive/conf/
-  sudo wget "https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem" -O "/etc/hive/conf/rds-combined-ca-bundle.pem"
+  sudo wget "https://s3.cn-northwest-1.amazonaws.com.cn/rds-downloads/rds-combined-ca-bundle.pem" -O "/etc/hive/conf/rds-combined-ca-bundle.pem"
 
   echo "executing action_update_presto_config.sh"
   prestoBootstrapHelper

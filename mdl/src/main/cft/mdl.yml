@@ -177,7 +177,7 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Condition: DeployPrereqs
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlPrerequisitesPrimary.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlPrerequisitesPrimary.yml]]
       Parameters:
         CreateS3Buckets: !Ref CreateS3Buckets
         CreateIAMRoles: !Ref CreateIAMRoles
@@ -203,7 +203,7 @@ Resources:
     DependsOn:
       - PrerequisitesPrimaryStack
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlPrerequisitesSecondary.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlPrerequisitesSecondary.yml]]
       Parameters:
         CertificateArn: !Ref CertificateArn
         DomainNameSuffix: !Ref DomainNameSuffix
@@ -241,7 +241,7 @@ Resources:
     DependsOn:
       - PrerequisitesSecondaryStack
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlElasticsearch.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlElasticsearch.yml]]
       Parameters:
         DeploymentBucketName: !Ref DeploymentBucketName
         ReleaseVersion: !Ref ReleaseVersion
@@ -272,7 +272,7 @@ Resources:
     Condition: DeployBDSQLWithAuth
     DependsOn: ElasticSearchEC2Stack
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlCreateNsAuthSyncUtil.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlCreateNsAuthSyncUtil.yml]]
       Parameters:
         MDLInstanceName: !Ref MDLInstanceName
         Environment: !Ref Environment
@@ -287,7 +287,7 @@ Resources:
     DependsOn:
       - ElasticSearchEC2Stack
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlHerd.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlHerd.yml]]
       Parameters:
         HerdVersion: !Ref HerdVersion
         HerdUIVersion: !Ref HerdUIVersion
@@ -336,7 +336,7 @@ Resources:
     DependsOn:
       - HerdEC2Stack
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlUpgradeHerd.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlUpgradeHerd.yml]]
       Parameters:
         MDLInstanceName: !Ref MDLInstanceName
         Environment: !Ref Environment
@@ -348,7 +348,7 @@ Resources:
     DependsOn:
       - HerdEC2Stack
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlMetastor.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlMetastor.yml]]
       Parameters:
         DeploymentBucketName: !Ref DeploymentBucketName
         ReleaseVersion: !Ref ReleaseVersion
@@ -389,7 +389,7 @@ Resources:
     Condition: DeployBDSQL
     DependsOn: MetastorStack
     Properties:
-      TemplateURL: !Join ['', ['https://s3.amazonaws.com/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlBdsql.yml]]
+      TemplateURL: !Join ['', ['https://s3.cn-northwest-1.amazonaws.com.cn/', !Ref DeploymentBucketName, /, !Ref ReleaseVersion, /cft/mdlBdsql.yml]]
       Parameters:
         DeploymentBucketName: !Ref DeploymentBucketName
         ReleaseVersion: !Ref ReleaseVersion

@@ -47,7 +47,7 @@ fi
 # This is to enable SSL communication between tomcat and postgres
 tmp=`/usr/bin/sudo /usr/bin/keytool -keystore /usr/lib/jvm/jre/lib/security/cacerts -storepass changeit -list | /bin/grep rds_postgres`
 if [ "${tmp}" = "" ]; then
-    execute_cmd "/usr/bin/curl https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem > /tmp/rds-combined-ca-bundle.pem";
+    execute_cmd "/usr/bin/curl https://s3.cn-northwest-1.amazonaws.com.cn/rds-downloads/rds-combined-ca-bundle.pem > /tmp/rds-combined-ca-bundle.pem";
     execute_cmd "/usr/bin/openssl x509 -outform der -in /tmp/rds-combined-ca-bundle.pem -out /tmp/rds-combined-ca-bundle.der";
     execute_cmd "/usr/bin/yes | /usr/bin/sudo /usr/bin/keytool -keystore /usr/lib/jvm/jre/lib/security/cacerts -alias rds_postgres -import -file /tmp/rds-combined-ca-bundle.der -storepass changeit";
     execute_cmd "rm /tmp/rds-combined-ca-bundle.pem"
