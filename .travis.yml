@@ -43,7 +43,6 @@ before_deploy:
  - export GIT_TAG="${RELEASE_COMPONENT}-v${component_version}"
  - git tag $GIT_TAG -a -m "Tagging from TravisCI for build $TRAVIS_BUILD_NUMBER"
  - git push -q https://${GH_TOKEN}@github.com/amz-hjinfeng/herd-mdl.git --tags
- - travis setup releases
 
 # deploy:
 #   - provider: s3
@@ -99,8 +98,7 @@ before_deploy:
 
 deploy:
   - provider: releases
-    user: ${GH_USER}
-    password: ${GH_PWD}
+    api_key: ${GH_TOKEN}
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdl-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/herd-mdlt-${component_version}-dist.zip'
@@ -115,8 +113,7 @@ deploy:
     body: Automated herd-mdl (mdl) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
 
   - provider: releases
-    user: ${GH_USER}
-    password: ${GH_PWD}
+    api_key: ${GH_TOKEN}
     file: '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/target/bdsql-${component_version}-dist.zip'
     skip_cleanup: true
     on:
@@ -127,8 +124,7 @@ deploy:
     body: Automated herd-mdl (bdsql) build from $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
 
   - provider: releases
-    user: ${GH_USER}
-    password: ${GH_PWD}
+    api_key: ${GH_TOKEN}
     file:
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/managedObjectLoader/target/managedObjectLoader-${component_version}-dist.zip'
       - '${TRAVIS_BUILD_DIR}/${RELEASE_COMPONENT}/metastoreOperations/target/metastoreOperations-${component_version}-dist.zip'
