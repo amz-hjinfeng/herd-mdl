@@ -61,11 +61,15 @@ Resources:
                 - lambda.amazonaws.com
             Action:
               - sts:AssumeRole
+              - codedeploy:Get*
+              - codedeploy:Batch*
+              - codedeploy:CreateDeployment
+              - codedeploy:RegisterApplicationRevision
+              - codedeploy:List*
       Path: /
       ManagedPolicyArns:
         - 'arn:aws-cn:iam::aws:policy/AmazonSSMFullAccess'
         - 'arn:aws-cn:iam::aws:policy/CloudWatchLogsFullAccess'
-        - 'arn:aws-cn:iam::aws:policy/AWSCodeDeployFullAccess'
   UpgradeHerdUtilityArnParameter:
     Type: AWS::SSM::Parameter
     Properties:
