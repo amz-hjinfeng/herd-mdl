@@ -102,11 +102,11 @@ Resources:
                   - 'sts:AssumeRole'
                   - 'sts:GetFederationToken'
                   - 'sts:DecodeAuthorizationMessage'
-                  - ’codedeploy:Get*‘
-                  - ‘codedeploy:Batch*’
-                  - ‘codedeploy:CreateDeployment’
-                  - ‘codedeploy:RegisterApplicationRevision‘
-                  - ’codedeploy:List*‘
+                  - 'codedeploy:Get*'
+                  - 'codedeploy:Batch*'
+                  - 'codedeploy:CreateDeployment'
+                  - 'codedeploy:RegisterApplicationRevision'
+                  - 'codedeploy:List*'
                 Effect: Allow
                 Resource: '*'
   MDLInstanceProfile:
