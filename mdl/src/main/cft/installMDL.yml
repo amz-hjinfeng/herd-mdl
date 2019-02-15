@@ -126,7 +126,7 @@ Parameters:
     Description: Domain name suffix for MDL Domains
     Type: String
   ImageId:
-    Default: ami-1853ac65
+    Default: ami-02f5e160
     Description: AMI id for EC2 instances
     Type: String
   CreateDemoObjects:
