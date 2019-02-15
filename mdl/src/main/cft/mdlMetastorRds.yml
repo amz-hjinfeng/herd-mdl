@@ -83,7 +83,7 @@ Parameters:
       - io1
     ConstraintDescription: Must select a valid MetastorDB Storage Type.
   MetastorDBStorageEncrypted:
-    Default: 'true'
+    Default: 'false'
     Description: Encrypted Mysql RDS database instance
     Type: String
     ConstraintDescription: Must be either true or false.
@@ -169,7 +169,6 @@ Resources:
       PreferredMaintenanceWindow: !Ref MetastorDBPreferredMaintenanceWindow
       MultiAZ: !Ref MultiAZDeployment
       StorageType: !Ref MetastorDBStorageType
-      StorageEncrypted: !Ref MetastorDBStorageEncrypted
       CopyTagsToSnapshot: !Ref CopyInstTagsToSnapshot
       AutoMinorVersionUpgrade: !Ref AutoInstMinorVersionUpgrade
   MetastorDBHostName:

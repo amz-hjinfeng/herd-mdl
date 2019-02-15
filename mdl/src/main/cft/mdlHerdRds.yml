@@ -77,7 +77,7 @@ Parameters:
       - io1
     ConstraintDescription: Must select a valid DB Storage Type.
   HerdDBStorageEncrypted:
-    Default: 'true'
+    Default: 'false'
     Description: Encrypted Postgres RDS database instance
     Type: String
     ConstraintDescription: Must be either true or false.
@@ -175,7 +175,6 @@ Resources:
       PreferredMaintenanceWindow: !Ref HerdDBPreferredMaintenanceWindow
       MultiAZ: !Ref HerdMultiAZDeployment
       StorageType: !Ref HerdDBStorageType
-      StorageEncrypted: !Ref HerdDBStorageEncrypted
       CopyTagsToSnapshot: !Ref CopyInstTagsToSnapshot
       AutoMinorVersionUpgrade: !Ref AutoInstMinorVersionUpgrade
       Tags:
