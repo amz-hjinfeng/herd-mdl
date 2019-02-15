@@ -147,8 +147,8 @@ Resources:
     Properties:
       Description: Herd DB param group
       Family: postgres9.5
-      Parameters:
-        rds.force_ssl: '1'
+      # Parameters:
+      #   rds.force_ssl: '1'
   PostgresDB:
     Type: 'AWS::RDS::DBInstance'
     DeletionPolicy: Snapshot

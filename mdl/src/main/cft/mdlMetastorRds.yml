@@ -140,8 +140,8 @@ Resources:
     Properties:
       Description: My DB param group
       Family: mysql5.6
-      Parameters:
-        log_bin_trust_function_creators: '1'
+      # Parameters:
+        # log_bin_trust_function_creators: '1'
   MetastorMysqlDB:
     Type: 'AWS::RDS::DBInstance'
     DeletionPolicy: Snapshot
