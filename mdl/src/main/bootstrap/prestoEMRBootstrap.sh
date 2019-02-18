@@ -33,7 +33,7 @@ echo "setup cloudwatch for Bdsql"
 sudo sed -i "s/{log_group_name}/${logGroupName}/g" /opt/mdl/bdsql/logs.conf
 wget https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
 chmod +x ./awslogs-agent-setup.py
-sudo python awslogs-agent-setup.py -n -r ${regionName} -c s3://aws-codedeploy-us-east-1/cloudwatch/awslogs.conf
+sudo python awslogs-agent-setup.py -n -r ${regionName} -c s3://${region}/herd/awslogs.conf
 sudo mkdir -p /var/awslogs/etc/config
 sudo cp /opt/mdl/bdsql/logs.conf /var/awslogs/etc/config/codedeploy_logs.conf
 sudo service awslogs restart

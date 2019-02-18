@@ -257,7 +257,7 @@ Resources:
                     . ${configFile}
                     execute_cmd "wget https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py" "RETRY" 2&>1
                     execute_cmd "chmod +x ./awslogs-agent-setup.py"
-                    execute_cmd "sudo python awslogs-agent-setup.py -n -r ${region} -c s3://aws-codedeploy-us-east-1/cloudwatch/awslogs.conf"
+                    execute_cmd "sudo python awslogs-agent-setup.py -n -r ${region} -c s3://${region}/herd/awslogs.conf"
                     execute_cmd "sudo service awslogs restart"
                     execute_cmd "yum remove -y java-1.7.0-openjdk"
                     execute_cmd "curl -sL https://rpm.nodesource.com/setup_0.10 | sudo -E bash -"
