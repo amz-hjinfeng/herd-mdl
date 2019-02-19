@@ -27,3 +27,4 @@ target/
 ### JetBrains template
 .idea/
 *.iml
+mdl/src/main/.DS_Store

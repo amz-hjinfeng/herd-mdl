@@ -372,7 +372,6 @@ Resources:
                 - - waitHandleForEs="
                   - !Ref EsWaitHandle
                   - |-
-                    "
 
                     mdlInstanceName=
                   - !Ref MDLInstanceName
@@ -503,7 +502,7 @@ Resources:
     DependsOn: EsEc2Instance
     Properties:
       Handle: !Ref EsWaitHandle
-      Timeout: '1200'
+      Timeout: '600'
   LambdaExecutionRole:
     Type: 'AWS::IAM::Role'
     Properties:
@@ -574,7 +573,7 @@ Resources:
               return '/app/MDL/{}/{}/ACM/Arn'.format(instance_name, environment)
       Role: !GetAtt 'LambdaExecutionRole.Arn'
       Runtime: 'python3.6'
-      Timeout: '600'
+      Timeout: '300'
       MemorySize: 2048
   CleanupAcmCustomResource:
     Type: Custom::CleanupAcmCustomResource
