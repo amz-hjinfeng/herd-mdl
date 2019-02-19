@@ -459,7 +459,7 @@ Resources:
                 - - waitHandleForHerd="
                   - !Ref HerdWaitHandle
                   - |-
-                    "
+                    
                     httpProtocol=
                   - !If [EnableSSLAndAuth, https, http]
                   - |-
