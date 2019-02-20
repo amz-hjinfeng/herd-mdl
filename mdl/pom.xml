@@ -22,7 +22,7 @@
 
   <artifactId>herd-mdl</artifactId>
   <groupId>org.finra.herd-mdl</groupId>
-  <version>1.4.18</version>
+  <version>1.4.19</version>
 
   <properties>
 

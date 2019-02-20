@@ -496,7 +496,7 @@ Resources:
             - !Ref 'AWS::Region'
             - |+
             - |
-            - '/opt/aws/bin/cfn-signal --exit-code 0 '
+            - '/opt/aws/bin/cfn-signal --exit-code $? '
             - ' --stack'
             - !Ref 'AWS::StackName'
             - ' --resource EsEc2Instance'
@@ -511,7 +511,7 @@ Resources:
     Properties:
       Handle: !Ref EsWaitHandle
       Timeout: '600'
-      Count: 2
+      Count: 1
   LambdaExecutionRole:
     Type: 'AWS::IAM::Role'
     Properties:
