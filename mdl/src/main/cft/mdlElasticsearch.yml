@@ -496,8 +496,12 @@ Resources:
             - !Ref 'AWS::Region'
             - |+
             - |
-            - '/opt/aws/bin/cfn-signal --exit-code $? '
-            - !Ref ' EsWaitHandle'
+            - '/opt/aws/bin/cfn-signal -e 0 '
+            - '  --stack '
+            - !Ref 'AWS::StackName'
+            - ' --resource EsEc2Instance '
+            - ' --region'
+            - !Ref 'AWS::Region'
             - |+
   EsWaitHandle:
     Type: 'AWS::CloudFormation::WaitConditionHandle'
@@ -506,7 +510,7 @@ Resources:
     DependsOn: EsEc2Instance
     Properties:
       Handle: !Ref EsWaitHandle
-      Timeout: '600'
+      Timeout: '1200'
   LambdaExecutionRole:
     Type: 'AWS::IAM::Role'
     Properties:
