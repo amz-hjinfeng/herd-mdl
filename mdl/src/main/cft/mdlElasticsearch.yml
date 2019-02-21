@@ -500,10 +500,10 @@ Resources:
 
               - |
                 # Signal the status from cfn-init
-              - '/opt/aws/bin/cfn-signal -e 0 '
+              - '/opt/aws/bin/cfn-signal -e 0 "'
               - !Ref 'EsWaitHandle'
+              - '"'
               - |+
-
               - |
   EsWaitHandle:
     Type: 'AWS::CloudFormation::WaitConditionHandle'
