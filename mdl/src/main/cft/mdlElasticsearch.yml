@@ -492,7 +492,7 @@ Resources:
               - !Ref 'AWS::StackName'
               - ' --resource EsEc2Instance '
               - ' --configsets PreInstallAndInstall '
-              - ' --quitregion '
+              - ' --region '
               - !Ref 'AWS::Region'
               - '\n'
               - |+
