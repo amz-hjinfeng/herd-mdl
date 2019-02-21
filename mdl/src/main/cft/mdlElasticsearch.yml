@@ -510,7 +510,6 @@ Resources:
               - ' --configsets PreInstallAndInstall '
               - ' --region '
               - !Ref 'AWS::Region'
-              - ' >> /var/log/c.log'
               - |+
               - |
               - '/opt/aws/bin/cfn-signal -e 0 '
@@ -519,14 +518,12 @@ Resources:
               - ' --resource EsEc2Instance '
               - ' --region '
               - !Ref 'AWS::Region'
-              - ' >> /var/log/c.log'
               - |+
               - 'SignalURL='
               - Ref: EsWaitHandle
               - |+
               - 'curl -T /tmp/0.sg ${SignalURL}'
               - |+
-
   EsWaitHandle:
     Type: 'AWS::CloudFormation::WaitConditionHandle'
   EsWaitCondition:
