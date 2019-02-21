@@ -197,7 +197,7 @@ Resources:
                 - - waitHandleForLdap="
                   - !Ref LdapWaitHandle
                   - |-
-                    "
+                    
                     MDLInstanceName=
                   - !Ref MDLInstanceName
                   - |-
