@@ -487,6 +487,8 @@ Resources:
             - ''
             - - |
                 #!/bin/bash -xe
+              - |
+                # Install the files and packages from the metadata
               - '/opt/aws/bin/cfn-init -v '
               - '  --stack '
               - !Ref 'AWS::StackName'
@@ -494,11 +496,15 @@ Resources:
               - ' --configsets PreInstallAndInstall '
               - ' --region '
               - !Ref 'AWS::Region'
-              - '\n'
               - |+
-              - '\n/opt/aws/bin/cfn-signal -e 0 '
+
+              - |
+                # Signal the status from cfn-init
+              - '/opt/aws/bin/cfn-signal -e 0 '
               - !Ref EsWaitHandle              
               - |+
+              
+              - |
   EsWaitHandle:
     Type: 'AWS::CloudFormation::WaitConditionHandle'
   EsWaitCondition:
