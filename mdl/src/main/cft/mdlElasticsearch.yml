@@ -342,12 +342,13 @@ Resources:
               content: !Join
                 - ’‘
                 - - |
-                  - '{'
+                    '{'
                   -  '"Status" : "SUCCESS",'
                   - '"Reason" : "Configuration Complete",'
                   - '"UniqueId" : IDS"'
                   - '"Data" : "Application has completed configuration."'
                   - '}'
+                  - |+
               mode: '000644'
               owner: root
               group: root 
@@ -511,18 +512,8 @@ Resources:
               - ' --region '
               - !Ref 'AWS::Region'
               - |+
-              - |
               - '/opt/aws/bin/cfn-signal -e 0 '
-              - '  --stack '
-              - !Ref 'AWS::StackName'
-              - ' --resource EsEc2Instance '
-              - ' --region '
-              - !Ref 'AWS::Region'
-              - |+
-              - 'SignalURL='
-              - Ref: EsWaitHandle
-              - |+
-              - 'curl -T /tmp/0.sg ${SignalURL}'
+              - !Ref EsWaitHandle              
               - |+
   EsWaitHandle:
     Type: 'AWS::CloudFormation::WaitConditionHandle'
