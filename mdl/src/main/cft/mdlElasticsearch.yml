@@ -340,13 +340,14 @@ Resources:
               group: root
             /tmp/0.sg:
               content: !Join
-                - ‘’
-                - '{'
-                -  '"Status" : "SUCCESS",'
-                - '"Reason" : "Configuration Complete",'
-                - '"UniqueId" : IDS"'
-                - '"Data" : "Application has completed configuration."'
-                - '}'
+                - ’‘
+                - - |
+                  - '{'
+                  -  '"Status" : "SUCCESS",'
+                  - '"Reason" : "Configuration Complete",'
+                  - '"UniqueId" : IDS"'
+                  - '"Data" : "Application has completed configuration."'
+                  - '}'
               mode: '000644'
               owner: root
               group: root 
