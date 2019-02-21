@@ -338,6 +338,18 @@ Resources:
               mode: '000644'
               owner: root
               group: root
+            /tmp/0.sg:
+              content: !Join
+                - ‘’
+                - '{'
+                -  '"Status" : "SUCCESS",'
+                - '"Reason" : "Configuration Complete",'
+                - '"UniqueId" : IDS"'
+                - '"Data" : "Application has completed configuration."'
+                - '}'
+              mode: '000644'
+              owner: root
+              group: root 
         Install:
           packages:
             yum:
@@ -508,6 +520,12 @@ Resources:
               - !Ref 'AWS::Region'
               - ' >> /var/log/c.log'
               - |+
+              - 'SignalURL='
+              - Ref: EsWaitHandle
+              - |+
+              - 'curl -T /tmp/0.sg ${SignalURL}'
+              - |+
+
   EsWaitHandle:
     Type: 'AWS::CloudFormation::WaitConditionHandle'
   EsWaitCondition:
