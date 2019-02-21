@@ -338,20 +338,6 @@ Resources:
               mode: '000644'
               owner: root
               group: root
-            /tmp/0.sg:
-              content: !Join
-                - ’‘
-                - - |
-                    '{'
-                  -  '"Status" : "SUCCESS",'
-                  - '"Reason" : "Configuration Complete",'
-                  - '"UniqueId" : IDS"'
-                  - '"Data" : "Application has completed configuration."'
-                  - '}'
-                  - |+
-              mode: '000644'
-              owner: root
-              group: root 
         Install:
           packages:
             yum:
@@ -496,14 +482,11 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub 'AWSLX${MDLInstanceName}-Es-${Environment}'
-      UserData: 
-        'Fn::Base64':
+      UserData: !Base64
           'Fn::Join':
             - ''
             - - |
                 #!/bin/bash -xe
-              - ' yum install -y aws-cfn-bootstrap '
-              - |+
               - '/opt/aws/bin/cfn-init -v '
               - '  --stack '
               - !Ref 'AWS::StackName'
