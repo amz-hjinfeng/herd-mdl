@@ -492,10 +492,11 @@ Resources:
               - !Ref 'AWS::StackName'
               - ' --resource EsEc2Instance '
               - ' --configsets PreInstallAndInstall '
-              - ' --region '
+              - ' --quitregion '
               - !Ref 'AWS::Region'
+              - '\n'
               - |+
-              - '/opt/aws/bin/cfn-signal -e 0 '
+              - '\n/opt/aws/bin/cfn-signal -e 0 '
               - !Ref EsWaitHandle              
               - |+
   EsWaitHandle:
