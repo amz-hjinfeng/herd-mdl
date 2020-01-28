@@ -251,7 +251,7 @@ Resources:
     Properties:
       Count: 1
       Handle: !Ref HerdWaitHandle
-      Timeout: '900'
+      Timeout: '1800'
   HerdTargetGroupPlainTXT:
     Condition: DisableSSLAndAuth
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
