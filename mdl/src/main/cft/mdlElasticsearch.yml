@@ -512,7 +512,7 @@ Resources:
     DependsOn: EsEc2Instance
     Properties:
       Handle: !Ref EsWaitHandle
-      Timeout: '3600'
+      Timeout: '7200'
   LambdaExecutionRole:
     Type: 'AWS::IAM::Role'
     Properties:
