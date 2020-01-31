@@ -179,7 +179,7 @@ function excuteBackgroundActions(){
 
   echo "configuring AWS RDS SSL CA certificate"
   sudo mkdir -p /etc/hive/conf/
-  sudo wget "https://s3.cn-northwest-1.amazonaws.com.cn/rds-downloads/rds-combined-ca-bundle.pem" -O "/etc/hive/conf/rds-combined-ca-bundle.pem"
+  sudo wget "https://s3.amazonaws.com./rds-downloads/rds-combined-ca-bundle.pem" -O "/etc/hive/conf/rds-combined-ca-bundle.pem"
 
   echo "executing action_update_presto_config.sh"
   prestoBootstrapHelper
