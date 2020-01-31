@@ -500,7 +500,7 @@ Resources:
 
               - |
                 # Signal the status from cfn-init
-              - '/opt/aws/bin/cfn-signal -s "'
+              - '/opt/aws/bin/cfn-signal -e 0 "'
               - !Ref 'EsWaitHandle'
               - '"'
               - |+
